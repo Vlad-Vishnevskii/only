@@ -1,26 +1,17 @@
 import React from 'react';
+import { Title, DatesSlider } from './components';
 
-import './App.scss';
+import styles from './style.module.scss';
 
-function App() {
+export const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-      
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.app}>
+      <div className={styles.app_container}>
+        <Title titleText="Исторические даты" />
+        <DatesSlider />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
