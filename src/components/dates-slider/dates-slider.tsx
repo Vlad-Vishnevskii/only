@@ -3,8 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { DATE_SLIDES } from '../../constants';
 
 import { Navigation, Pagination, EffectFade } from 'swiper/modules';
+import { EventsSlider } from '../events-slider';
 import { SliderArrow } from '../icons';
 import classNames from 'classnames';
+import { DateCircle } from '../dateCircle';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
@@ -32,14 +34,23 @@ export const DatesSlider: React.FC = () => {
   const handleSlideChange = () => {
     if (swiperRef.current) {
       const swiper = swiperRef.current.swiper;
+      console.log(swiper);
       setActiveSlide(DATE_SLIDES[swiper.activeIndex]);
       setIsBeginning(swiper.isBeginning);
       setIsEnd(swiper.isEnd);
     }
   };
 
+  const handleSlideTo = (index: number) => {
+    if (swiperRef.current) {
+      const swiper = swiperRef.current.swiper;
+      swiper.slideTo(index);
+    }
+  };
+
   return (
     <>
+      <DateCircle count={DATE_SLIDES.length} handleSlideTo={handleSlideTo} />
       <p>{`${activeSlide.dateStart} ${activeSlide.dateEnd}`}</p>
       <div className={styles.navigation}>
         <button onClick={handlePrev} className={styles.navigation_btn} disabled={isBeginning}>
@@ -67,7 +78,9 @@ export const DatesSlider: React.FC = () => {
         onSlideChange={handleSlideChange}
       >
         {DATE_SLIDES.map(item => (
-          <SwiperSlide key={item.id}>{`${item.dateStart} ${item.dateEnd}`}</SwiperSlide>
+          <SwiperSlide key={item.id}>
+            <EventsSlider events={item.events} />
+          </SwiperSlide>
         ))}
       </Swiper>
     </>
