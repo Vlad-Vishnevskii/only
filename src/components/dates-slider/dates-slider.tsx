@@ -34,7 +34,6 @@ export const DatesSlider: React.FC = () => {
   const handleSlideChange = () => {
     if (swiperRef.current) {
       const swiper = swiperRef.current.swiper;
-      console.log(swiper);
       setActiveSlide(DATE_SLIDES[swiper.activeIndex]);
       setIsBeginning(swiper.isBeginning);
       setIsEnd(swiper.isEnd);
@@ -50,7 +49,11 @@ export const DatesSlider: React.FC = () => {
 
   return (
     <>
-      <DateCircle count={DATE_SLIDES.length} handleSlideTo={handleSlideTo} />
+      <DateCircle
+        count={DATE_SLIDES.length}
+        handleSlideTo={handleSlideTo}
+        activeSlideId={activeSlide.id}
+      />
       <p>{`${activeSlide.dateStart} ${activeSlide.dateEnd}`}</p>
       <div className={styles.navigation}>
         <button onClick={handlePrev} className={styles.navigation_btn} disabled={isBeginning}>

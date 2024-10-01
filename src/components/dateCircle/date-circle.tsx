@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { gsap } from 'gsap';
+
 import './styles.scss';
 
 type CircleProps = {
   count: number; // Количество точек (от 2 до 6)
   handleSlideTo: (index: number) => void;
+  activeSlideId: number;
 };
 
-export const DateCircle: React.FC<CircleProps> = ({ count, handleSlideTo }) => {
+export const DateCircle: React.FC<CircleProps> = ({ count, handleSlideTo, activeSlideId }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   // Ограничиваем количество точек от 2 до 6
   const pointsCount = Math.min(Math.max(count, 2), 6);
+  const [offset, setOffsect] = useState(0);
+  const angleRef = useRef<number>(0);
 
   // Параметры окружности
   const radius = 199; // Радиус окружности
@@ -23,8 +29,25 @@ export const DateCircle: React.FC<CircleProps> = ({ count, handleSlideTo }) => {
     return { index, x, y };
   });
 
+  const slideTo = (index: number) => {
+    angleRef.current += 90;
+    setOffsect(prev => prev + 90);
+    if (containerRef.current) {
+      gsap.to(containerRef.current, { rotation: angleRef.current, duration: 1 });
+    }
+    handleSlideTo(index);
+  };
+
+  useEffect(() => {
+    if (containerRef.current) {
+      console.log(containerRef.current.style.rotate);
+      gsap.to(containerRef.current, { rotation: '-=180', duration: 1 });
+      setOffsect(prev => prev + 180);
+    }
+  }, [activeSlideId]);
+
   return (
-    <div className="circle-container">
+    <div ref={containerRef} className="circle-container">
       {points.map((point, index) => (
         <div
           key={index}
@@ -34,9 +57,16 @@ export const DateCircle: React.FC<CircleProps> = ({ count, handleSlideTo }) => {
             top: `${point.y}px`,
             position: 'absolute',
           }}
-          onClick={() => handleSlideTo(point.index)}
+          onClick={() => slideTo(point.index)}
         >
-          <span className="circle-point_number">{point.index + 1}</span>
+          <span
+            style={{
+              transform: `rotate(${-offset}deg)`,
+            }}
+            className="circle-point_number"
+          >
+            {point.index + 1}
+          </span>
         </div>
       ))}
     </div>
