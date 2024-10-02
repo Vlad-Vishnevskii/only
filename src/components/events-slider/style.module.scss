@@ -1,7 +1,35 @@
-.dateSlider {
+.eventSlider {
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   height: 200px;
   margin-top: 20px;
+  // padding: 0 60px;
+
+  &_event {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &_title {
+    margin: 0;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #3877ee;
+  }
+
+  &_text {
+    margin: 0;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    color: #42567a;
+  }
 }
 
 // .navigation {

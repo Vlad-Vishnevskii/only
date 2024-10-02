@@ -18,14 +18,18 @@ export const EventsSlider: React.FC<Props> = ({ events }) => {
     <Swiper
       modules={[Navigation]}
       slidesPerView={3}
-      spaceBetween={50}
-      className={styles.dateSlider}
+      spaceBetween={40}
+      // slidesOffsetBefore={50}
+      // slidesOffsetAfter={50}
+      className={styles.eventSlider}
       navigation={true}
     >
       {events.map(event => (
         <SwiperSlide key={event.id}>
-          <p>{event.year}</p>
-          <p>{event.text}</p>
+          <div className={styles.eventSlider_event}>
+            <p className={styles.eventSlider_title}>{event.year}</p>
+            <p className={styles.eventSlider_text}>{event.text}</p>
+          </div>
         </SwiperSlide>
       ))}
     </Swiper>
