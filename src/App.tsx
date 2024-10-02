@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title, DatesSlider } from './components';
+import { Title, RotatingSlider } from './components';
 
 import styles from './style.module.scss';
 
@@ -8,7 +8,7 @@ export const App: React.FC = () => {
     <div className={styles.app}>
       <div className={styles.app_container}>
         <Title titleText="Исторические даты" />
-        <DatesSlider />
+        <RotatingSlider />
       </div>
     </div>
   );

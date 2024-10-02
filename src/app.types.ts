@@ -4,4 +4,14 @@ export interface Event {
   text: string;
 }
 
+export interface DateSlide {
+  id: number;
+  dateStart: number;
+  dateEnd: number;
+  category: string;
+  events: Events;
+}
+
+export type DateMap = DateSlide[];
+
 export type Events = Event[];
