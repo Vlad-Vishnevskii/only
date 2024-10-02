@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { SliderArrow } from '../icons';
 import { Navigation } from 'swiper/modules';
-// import { SliderArrow } from '../icons';
-// import classNames from 'classnames';
 import { Events } from '../../app.types';
+import classNames from 'classnames';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -14,24 +14,68 @@ type Props = {
 };
 
 export const EventsSlider: React.FC<Props> = ({ events }) => {
+  const swiperRef = useRef<any>(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
+  const handleNext = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
+  const handlePrev = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
+  const handleSlideChange = () => {
+    const swiper = swiperRef.current.swiper;
+
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  };
+
   return (
-    <Swiper
-      modules={[Navigation]}
-      slidesPerView={3}
-      spaceBetween={40}
-      // slidesOffsetBefore={50}
-      // slidesOffsetAfter={50}
-      className={styles.eventSlider}
-      navigation={true}
-    >
-      {events.map(event => (
-        <SwiperSlide key={event.id}>
-          <div className={styles.eventSlider_event}>
-            <p className={styles.eventSlider_title}>{event.year}</p>
-            <p className={styles.eventSlider_text}>{event.text}</p>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className={styles.container}>
+      <div className={styles.navigation}>
+        <button
+          className={classNames(styles.navigation_button, {
+            [styles.navigation_button_hide]: isBeginning,
+          })}
+          onClick={handlePrev}
+        >
+          <SliderArrow />
+        </button>
+
+        <button
+          className={classNames(styles.navigation_button, styles.navigation_button_next, {
+            [styles.navigation_button_hide]: isEnd,
+          })}
+          onClick={handleNext}
+        >
+          <SliderArrow />
+        </button>
+      </div>
+      <Swiper
+        ref={swiperRef}
+        modules={[Navigation]}
+        spaceBetween={50}
+        slidesPerView={3}
+        className={styles.eventSlider}
+        grabCursor
+        onSlideChange={() => handleSlideChange()}
+      >
+        {events.map(event => (
+          <SwiperSlide key={event.id}>
+            <div className={styles.eventSlider_event}>
+              <p className={styles.eventSlider_title}>{event.year}</p>
+              <p className={styles.eventSlider_text}>{event.text}</p>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 };

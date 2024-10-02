@@ -1,10 +1,53 @@
+.container {
+  position: relative;
+  padding: 0 100px;
+}
+
+.navigation {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  padding: 0 35px;
+  top: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &_button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.1);
+    color: #3877ee;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &_next {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    &_hide {
+      opacity: 0;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+}
+
 .eventSlider {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   height: 200px;
   margin-top: 20px;
-  // padding: 0 60px;
 
   &_event {
     display: flex;
