@@ -25,7 +25,7 @@ export const RotatingSlider: React.FC = () => {
   const dateTitleRef = useRef<HTMLDivElement | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const anglePerSlide = 360 / DATE_SLIDES.length;
-  const radius = 200;
+  const radius = 265;
 
   const rotateCircle = (index: number) => {
     const rotationAngle = -index * anglePerSlide;
@@ -121,8 +121,8 @@ export const RotatingSlider: React.FC = () => {
                   [styles.circle_point_active]: isActive,
                 })}
                 style={{
-                  top: `calc(196px + ${y}px)`,
-                  left: `calc(196px + ${x}px)`,
+                  top: `calc(49.5% + ${y}px)`,
+                  left: `calc(49.5% + ${x}px)`,
                 }}
               >
                 <div className={styles.circle_activePoint}>

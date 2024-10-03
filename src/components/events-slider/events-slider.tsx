@@ -61,14 +61,14 @@ export const EventsSlider: React.FC<Props> = ({ events }) => {
       <Swiper
         ref={swiperRef}
         modules={[Navigation]}
-        spaceBetween={50}
-        slidesPerView={3}
+        spaceBetween={80}
+        slidesPerView="auto"
         className={styles.eventSlider}
         grabCursor
         onSlideChange={() => handleSlideChange()}
       >
         {events.map(event => (
-          <SwiperSlide key={event.id}>
+          <SwiperSlide className={styles.eventSlider_slide} key={event.id}>
             <div className={styles.eventSlider_event}>
               <p className={styles.eventSlider_title}>{event.year}</p>
               <p className={styles.eventSlider_text}>{event.text}</p>

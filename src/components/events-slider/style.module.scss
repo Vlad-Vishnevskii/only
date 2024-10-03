@@ -1,14 +1,16 @@
 .container {
   position: relative;
-  padding: 0 100px;
+  padding-left: 74px;
+  padding-right: 95px;
+  margin-top: 55px;
 }
 
 .navigation {
   position: absolute;
   z-index: 0;
-  left: 0;
+  left: -10px;
   padding: 0 35px;
-  top: 60px;
+  top: 40px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -47,11 +49,18 @@
   margin-left: auto;
   margin-right: auto;
   height: 200px;
-  margin-top: 20px;
   user-select: none;
 
   :global(.swiper-wrapper) {
     width: fit-content;
+  }
+
+  &_slide {
+    width: 320px;
+
+    &:nth-of-type(2n) {
+      width: 400px;
+    }
   }
 
   &_event {

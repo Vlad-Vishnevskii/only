@@ -1,3 +1,51 @@
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../public/fonts/PTSans-Regular.woff2') format('woff2');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../public/fonts/PTSans-Regular.woff') format('woff');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../public/fonts/PTSans-Bold.woff2') format('woff2');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../public/fonts/PTSans-Bold.woff') format('woff');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../public/fonts/BebasNeue-Regular.woff2') format('woff2');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../public/fonts/BebasNeue-Regular.woff') format('woff');
+  font-display: block;
+}
+
 :root {
   --font-family: 'PT Sans', 'Arial', sans-serif;
   --second-family: 'Bebas Neue', 'Arial', sans-serif;
@@ -29,8 +77,9 @@ body {
     width: 100%;
     max-width: 1442px;
     height: 100%;
-    padding-top: 300px;
-    margin-left: 15%;
+    min-height: 100vh;
+    padding-top: 168px;
+    margin-left: 16.7%;
     border-left: 1px solid rgba(66, 86, 122, 0.1);
     border-right: 1px solid rgba(66, 86, 122, 0.1);
   }

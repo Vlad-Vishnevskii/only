@@ -1,6 +1,6 @@
 .dateSlider {
   width: 100%;
-  height: 500px;
+  height: auto;
 }
 
 :global(.swiper-pagination) {
@@ -8,12 +8,11 @@
 }
 
 .navContainer {
-  margin-top: 350px;
-  padding-left: 70px;
+  margin-top: 394px;
+  padding-left: 80px;
 }
 
 .slidesNumber {
-  padding-left: 5px;
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 14px;
@@ -23,7 +22,7 @@
 .navigation {
   display: flex;
   gap: 16px;
-  margin-top: 30px;
+  margin-top: 21px;
 
   &_btn {
     width: 50px;
@@ -53,16 +52,16 @@
   position: absolute;
   z-index: 10;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 215px;
+  transform: translateX(-50%);
 }
 
 .circle {
   position: relative;
   z-index: 4;
   display: flex;
-  width: 400px;
-  height: 400px;
+  width: 530px;
+  height: 530px;
   border: 1px solid #ccc;
   border-radius: 50%;
   justify-content: center;
@@ -150,8 +149,7 @@
 .xLine {
   position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 479px;
   height: 1px;
   width: 100%;
   background: rgba(66, 86, 122, 0.1);
@@ -173,7 +171,6 @@
   left: 50%;
   top: 50%;
   display: flex;
-  gap: 70px;
   transform: translate(-50%, -50%);
   width: fit-content;
   font-family: var(--font-family);
@@ -185,9 +182,11 @@
 
   &_blue {
     color: #5d5fef;
+    padding-right: 45px;
   }
 
   &_pink {
+    padding-left: 45px;
     color: #ef5da8;
   }
 }
