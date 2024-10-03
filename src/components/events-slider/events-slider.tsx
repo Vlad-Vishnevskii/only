@@ -66,6 +66,18 @@ export const EventsSlider: React.FC<Props> = ({ events }) => {
         className={styles.eventSlider}
         grabCursor
         onSlideChange={() => handleSlideChange()}
+        breakpoints={{
+          300: {
+            spaceBetween: 30,
+            slidesOffsetBefore: 16,
+            slidesOffsetAfter: 16,
+          },
+          1024: {
+            spaceBetween: 80,
+            slidesOffsetBefore: 0,
+            slidesOffsetAfter: 0,
+          },
+        }}
       >
         {events.map(event => (
           <SwiperSlide className={styles.eventSlider_slide} key={event.id}>

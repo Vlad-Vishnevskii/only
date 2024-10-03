@@ -1,15 +1,52 @@
 .dateSlider {
   width: 100%;
   height: auto;
+
+  @media (max-width: 1023px) {
+    padding-bottom: 35px;
+  }
 }
 
 :global(.swiper-pagination) {
   display: none;
+
+  @media (max-width: 1023px) {
+    display: block;
+  }
+}
+
+:global(.swiper-pagination-bullet) {
+  background: #42567a;
+  opacity: 0.4;
+  width: 6px;
+  height: 6px;
+  margin: 0 5px !important; // !important потому что неудобно повышать спечефичность у марджинов булитов, знаю что это плохая практика))
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background: #42567a;
+  opacity: 1;
+}
+
+.dateSliderContainer {
+  @media (max-width: 1023px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .navContainer {
   margin-top: 394px;
   padding-left: 80px;
+
+  @media (max-width: 1023px) {
+    position: relative;
+    z-index: 11;
+    width: fit-content;
+    order: 10;
+    margin-top: -47px;
+    padding: 0 20px;
+  }
 }
 
 .slidesNumber {
@@ -17,12 +54,22 @@
   font-weight: 400;
   font-size: 14px;
   color: #42567a;
+
+  @media (max-width: 1023px) {
+    gap: 8px;
+    margin-top: 10px;
+  }
 }
 
 .navigation {
   display: flex;
   gap: 16px;
   margin-top: 21px;
+
+  @media (max-width: 1023px) {
+    gap: 8px;
+    margin-top: 10px;
+  }
 
   &_btn {
     width: 50px;
@@ -33,6 +80,18 @@
     border: 1px solid rgba(66, 86, 122, 0.5);
     color: #42567a;
     transition: all 0.3s ease;
+
+    @media (max-width: 1023px) {
+      width: 25px;
+      height: 25px;
+    }
+
+    svg {
+      @media (max-width: 1023px) {
+        width: 6px;
+        height: 8px;
+      }
+    }
 
     &_next {
       svg {
@@ -54,6 +113,10 @@
   left: 50%;
   top: 215px;
   transform: translateX(-50%);
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
 }
 
 .circle {
@@ -67,6 +130,10 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+
+  @media (max-width: 1023px) {
+    border: 0;
+  }
 
   * {
     box-sizing: border-box;
@@ -84,6 +151,10 @@
     background: #42567a;
     cursor: pointer;
     transition: all 0.4s ease;
+
+    @media (max-width: 1023px) {
+      display: none;
+    }
 
     &_active,
     &:hover {
@@ -153,6 +224,10 @@
   height: 1px;
   width: 100%;
   background: rgba(66, 86, 122, 0.1);
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
 }
 
 .yLine {
@@ -163,6 +238,10 @@
   height: 100%;
   width: 1px;
   background: rgba(66, 86, 122, 0.1);
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
 }
 
 .dateTitle {
@@ -180,13 +259,53 @@
   letter-spacing: -0.02em;
   text-align: center;
 
+  @media (max-width: 1250px) {
+    font-size: 150px;
+  }
+
   &_blue {
     color: #5d5fef;
     padding-right: 45px;
+
+    @media (max-width: 1250px) {
+      padding-right: 15px;
+    }
   }
 
   &_pink {
     padding-left: 45px;
     color: #ef5da8;
+
+    @media (max-width: 1250px) {
+      padding-left: 15px;
+    }
+  }
+}
+
+.dateTitleMobile {
+  display: none;
+
+  @media (max-width: 1023px) {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 55px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 56px;
+    letter-spacing: -0.02em;
+    color: #3877ee;
+    border-bottom: 1px solid #c7cdd9;
+    padding-bottom: 57px;
+
+    &_blue {
+      color: #3877ee;
+    }
+
+    &_pink {
+      color: #f178b6;
+    }
   }
 }

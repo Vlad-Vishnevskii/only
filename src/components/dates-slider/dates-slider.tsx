@@ -99,7 +99,11 @@ export const RotatingSlider: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={styles.dateSliderContainer}>
+      <div className={styles.dateTitleMobile}>
+        <span className={styles.dateTitleMobile_blue}>{yearBlue}</span>
+        <span className={styles.dateTitleMobile_pink}>{yearPink}</span>
+      </div>
       <div className={styles.circleWrapper}>
         <div ref={circleRef} className={styles.circle}>
           <div ref={dateTitleRef} className={styles.dateTitle}>
