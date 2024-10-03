@@ -157,6 +157,7 @@ export const RotatingSlider: React.FC = () => {
         modules={[EffectFade, Pagination, Navigation]}
         effect={'fade'}
         spaceBetween={30}
+        allowTouchMove={false}
         pagination={{
           clickable: true,
         }}
