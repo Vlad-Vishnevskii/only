@@ -53,6 +53,11 @@
       opacity: 0;
       pointer-events: none;
       cursor: default;
+
+      .navigation_button:hover,
+      .navigation_button_next:hover {
+        opacity: 0;
+      }
     }
   }
 }
@@ -126,6 +131,12 @@
 
     @media (max-width: 1023px) {
       font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      line-clamp: 5;
+      -webkit-line-clamp: 5;
     }
   }
 }

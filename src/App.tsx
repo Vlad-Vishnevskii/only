@@ -10,6 +10,11 @@ export const App: React.FC = () => {
         <Title titleText="Исторические даты" />
         <RotatingSlider />
       </div>
+      {/* тестировать добавление блока нужно в связке с контейнером тк отнсительного него идет позиционирование окружности и линий  */}
+      {/* <div className={styles.app_container}>
+        <Title titleText="Исторические даты" />
+        <RotatingSlider />
+      </div> */}
     </div>
   );
 };

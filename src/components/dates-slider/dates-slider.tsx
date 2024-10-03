@@ -166,12 +166,13 @@ export const RotatingSlider: React.FC = () => {
           clickable: true,
         }}
         fadeEffect={{ crossFade: true }}
+        speed={1000} // Время анимации переключения (в миллисекундах)
         className={styles.dateSlider}
         onSlideChange={(swiper: any) => handleSlideChange(swiper.activeIndex)}
         onSwiper={(swiperInstance: any) => (swiperRef.current = swiperInstance)}
       >
         {DATE_SLIDES.map(slide => (
-          <SwiperSlide key={slide.id}>
+          <SwiperSlide key={slide.id} data-swiper-autoplay="2000">
             <EventsSlider events={slide.events} />
           </SwiperSlide>
         ))}

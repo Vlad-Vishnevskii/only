@@ -63,6 +63,7 @@ export const EventsSlider: React.FC<Props> = ({ events }) => {
         modules={[Navigation]}
         spaceBetween={80}
         slidesPerView="auto"
+        slidesPerGroup={3}
         className={styles.eventSlider}
         grabCursor
         onSlideChange={() => handleSlideChange()}
@@ -71,11 +72,13 @@ export const EventsSlider: React.FC<Props> = ({ events }) => {
             spaceBetween: 30,
             slidesOffsetBefore: 16,
             slidesOffsetAfter: 16,
+            slidesPerGroup: 1,
           },
           1024: {
             spaceBetween: 80,
             slidesOffsetBefore: 0,
             slidesOffsetAfter: 0,
+            slidesPerGroup: 3,
           },
         }}
       >
